@@ -1,0 +1,17 @@
+<h1>Listing items</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+ 
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td><%= item.item_type %></td>
+      <td><%= link_to 'Show', item_path(item) %></td>
+    </tr>
+  <% end %>
+</table>
