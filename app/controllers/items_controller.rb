@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
         @item = Item.new(item_params)
         @item.save
         redirect_to @item
-        #render plain: params[:item].inspect
     end
 
     def show
