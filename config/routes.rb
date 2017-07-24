@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-    get 'main/index'
+  root 'main#index'
+  get 'main/index'
 
-    resources :items
-    resources :users
+  resources :items
 
-    root 'main#index'
+  devise_for :users
 end
