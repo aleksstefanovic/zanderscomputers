@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
     def index
-        @items = Item.all
+        @searchQuery = params[:search]
+        @items = Item.where("name like ?", "%#{@searchQuery}%")
         @items.each do |item|
             item[:item_type] = ItemType.where(:id => item[:item_type]).first.name
         end

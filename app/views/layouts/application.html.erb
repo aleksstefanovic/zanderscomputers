@@ -20,6 +20,11 @@
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
     </p>
+    <%= render_navigation %>
+    <%= form_tag(items_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Parts..." %>
+        <%= submit_tag "Search", :name => nil %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
