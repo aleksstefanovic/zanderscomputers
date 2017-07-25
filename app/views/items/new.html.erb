@@ -11,7 +11,7 @@
 
   <p>
     <%= f.label :item_type %><br>
-    <%= f.text_field :item_type %>
+    <%= f.collection_select :item_type, ItemType.all, :id, :name %>
   </p>
  
   <p>

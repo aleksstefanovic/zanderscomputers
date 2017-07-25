@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
     def index
         @items = Item.all
+        @items.each do |item|
+            item[:item_type] = ItemType.where(:id => item[:item_type]).first.name
+        end
     end
     
     def new
@@ -14,6 +17,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
+        @item[:item_type] = ItemType.where(:id => @item[:item_type]).first.name
     end
 
     private def item_params
