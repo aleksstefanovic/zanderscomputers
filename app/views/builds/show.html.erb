@@ -1,0 +1,51 @@
+<p>
+  <strong>Name:</strong>
+  <%= @build.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @build.description %>
+</p>
+
+<p>
+  <strong>Motherboard:</strong>
+  <%= @motherboard.name %>
+  <%= @motherboard.description %>
+  <%= link_to 'Show', item_path(@motherboard) %>
+</p>
+
+<p>
+  <strong>RAM:</strong>
+  <%= @ram.name %>
+  <%= @ram.description %>
+  <%= link_to 'Show', item_path(@ram) %>
+</p>
+
+<p>
+  <strong>CPU:</strong>
+  <%= @cpu.name %>
+  <%= @cpu.description %>
+  <%= link_to 'Show', item_path(@cpu) %>
+</p>
+
+<p>
+  <strong>Graphics Card:</strong>
+  <%= @gpu.name %>
+  <%= @gpu.description %>
+  <%= link_to 'Show', item_path(@gpu) %>
+</p>
+
+<p>
+  <strong>Power Supply:</strong>
+  <%= @psu.name %>
+  <%= @psu.description %>
+  <%= link_to 'Show', item_path(@psu) %>
+</p>
+
+<p>
+  <strong>Chasis:</strong>
+  <%= @chasis.name %>
+  <%= @chasis.description %>
+  <%= link_to 'Show', item_path(@chasis) %>
+</p>

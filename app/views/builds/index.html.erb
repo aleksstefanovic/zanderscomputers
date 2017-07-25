@@ -1,0 +1,18 @@
+<h1>Listing Builds</h1>
+
+<%= link_to 'Create Build', controller: "builds", action: "new" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+ 
+  <% @builds.each do |build| %>
+    <tr>
+      <td><%= build.name %></td>
+      <td><%= build.description %></td>
+      <td><%= link_to 'Show', build_path(build) %></td>
+    </tr>
+  <% end %>
+</table>

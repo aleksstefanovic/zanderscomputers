@@ -1,0 +1,46 @@
+
+<%= form_for :build, url: builds_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label "Motherboard" %><br>
+    <%= f.collection_select :motherboard, Item.where(:item_type => "MOBO"), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label "RAM" %><br>
+    <%= f.collection_select :ram, Item.where(:item_type => "RAM"), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label "CPU" %><br>
+    <%= f.collection_select :cpu, Item.where(:item_type => "CPU"), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label "Graphics Card" %><br>
+    <%= f.collection_select :gpu, Item.where(:item_type => "GPU"), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label "Power Supply" %><br>
+    <%= f.collection_select :psu, Item.where(:item_type => "PSU"), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label "Chasis" %><br>
+    <%= f.collection_select :chasis, Item.where(:item_type => "CHASIS"), :id, :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

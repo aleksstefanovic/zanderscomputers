@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   get 'main/index'
 
   resources :items
-
+  resources :builds
   devise_for :users
 end
