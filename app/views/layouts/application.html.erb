@@ -23,6 +23,7 @@
     <%= render_navigation %>
     <%= form_tag(items_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Parts..." %>
+        <%= select_tag(params[:selected_item_type], options_from_collection_for_select(ItemType.all, :id, :name))%>
         <%= submit_tag "Search", :name => nil %>
     <% end %>
     <%= yield %>
