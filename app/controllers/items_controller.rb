@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
     def index
         @searchQuery = params[:search]
-        @category = params[:selected_item_type]
-        searchItemType = ItemType.where("name like ?", "%#{@category}%").first
+        searchItemType = params[:selected_item_type]
+        #searchItemType = ItemType.where("name like ?", "%#{@category}%").first
 
         @items = Item.where("name like ?", "%#{@searchQuery}%").where(:item_type => searchItemType)
         #if searchItemType != nil

@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <p class="navbar-text pull-right">
+    <p>
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -20,10 +20,10 @@
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
     </p>
-    <%= render_navigation %>
-    <%= form_tag(items_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Parts..." %>
-        <%= select_tag(params[:selected_item_type], options_from_collection_for_select(ItemType.all, :id, :name))%>
+    <%= render_navigation(:option => :bootstrap) %>
+    <%= form_tag(items_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Parts...", :class => 'form_control'  %>
+        <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name))%>
         <%= submit_tag "Search", :name => nil %>
     <% end %>
     <%= yield %>
