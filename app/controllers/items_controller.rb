@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     end
 
     def show
-        @item = Item.find(params[:id])
+        @item = Item.find(params[:id]) or not_found
         @item[:item_type] = ItemType.where(:id => @item[:item_type]).first.name
         if @item.image == nil
             @item.image = "NA.png"

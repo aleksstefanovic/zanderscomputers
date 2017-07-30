@@ -1,46 +1,45 @@
-
 <%= form_for :build, url: builds_path do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "form-control newText" %>
   </p>
  
   <p>
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :class => "form-control newDesc" %>
   </p>
 
   <p>
     <%= f.label "Motherboard" %><br>
-    <%= f.collection_select :motherboard, Item.where(:item_type => 1), :id, :name %>
+    <%= f.collection_select :motherboard, Item.where(:item_type => 1).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
 
   <p>
     <%= f.label "RAM" %><br>
-    <%= f.collection_select :ram, Item.where(:item_type => 2), :id, :name %>
+    <%= f.collection_select :ram, Item.where(:item_type => 2).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
 
   <p>
     <%= f.label "CPU" %><br>
-    <%= f.collection_select :cpu, Item.where(:item_type => 3), :id, :name %>
+    <%= f.collection_select :cpu, Item.where(:item_type => 3).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
 
   <p>
     <%= f.label "Graphics Card" %><br>
-    <%= f.collection_select :gpu, Item.where(:item_type => 4), :id, :name %>
+    <%= f.collection_select :gpu, Item.where(:item_type => 4).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
 
   <p>
     <%= f.label "Power Supply" %><br>
-    <%= f.collection_select :psu, Item.where(:item_type => 5), :id, :name %>
+    <%= f.collection_select :psu, Item.where(:item_type => 5).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
 
   <p>
     <%= f.label "Chasis" %><br>
-    <%= f.collection_select :chasis, Item.where(:item_type => 6), :id, :name %>
+    <%= f.collection_select :chasis, Item.where(:item_type => 6).order('name ASC').limit(10), :id, :name, {include_blank: ''}, { :class => "form-control category"} %>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => "btn btn-primary" %>
   </p>
 <% end %>

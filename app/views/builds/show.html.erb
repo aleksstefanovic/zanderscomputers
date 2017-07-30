@@ -1,6 +1,5 @@
 <p>
-  <strong>Name:</strong>
-  <%= @build[:name] %>
+  <h1>Name: <%= @build[:name] %></h1>
 </p>
  
 <p>
@@ -8,38 +7,54 @@
   <%= @build[:description] %>
 </p>
 
-<p>
-  <strong>Motherboard:</strong>
-  <%= @motherboard[:name] %>
-  <%= link_to 'Show', item_path(@motherboard) %>
-</p>
+<table class="table table-striped">
+  <tr>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th></th>
+  </tr>
+ 
+    <tr>
+      <td>Motherboard</td>
+      <td><%= @motherboard[:name] %></td>
+      <td><%= image_tag(@motherboard[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@motherboard) %></td>
+    </tr>
 
-<p>
-  <strong>RAM:</strong>
-  <%= @ram[:name] %>
-  <%= link_to 'Show', item_path(@ram) %>
-</p>
+    <tr>
+      <td>RAM</td>
+      <td><%= @ram[:name] %></td>
+      <td><%= image_tag(@ram[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@ram) %></td>
+    </tr>
 
-<p>
-  <strong>CPU:</strong>
-  <%= @cpu[:name] %>
-  <%= link_to 'Show', item_path(@cpu) %>
-</p>
+    <tr>
+      <td>CPU</td>
+      <td><%= @cpu[:name] %></td>
+      <td><%= image_tag(@cpu[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@cpu) %></td>
+    </tr>
 
-<p>
-  <strong>Graphics Card:</strong>
-  <%= @gpu[:name] %>
-  <%= link_to 'Show', item_path(@gpu) %>
-</p>
+    <tr>
+      <td>GPU</td>
+      <td><%= @gpu[:name] %></td>
+      <td><%= image_tag(@gpu[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@gpu) %></td>
+    </tr>
 
-<p>
-  <strong>Power Supply:</strong>
-  <%= @psu[:name] %>
-  <%= link_to 'Show', item_path(@psu) %>
-</p>
+    <tr>
+      <td>PSU</td>
+      <td><%= @psu[:name] %></td>
+      <td><%= image_tag(@psu[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@psu) %></td>
+    </tr>
 
-<p>
-  <strong>Chasis:</strong>
-  <%= @chasis[:name] %>
-  <%= link_to 'Show', item_path(@chasis) %>
-</p>
+    <tr>
+      <td>CHASIS</td>
+      <td><%= @chasis[:name] %></td>
+      <td><%= image_tag(@chasis[:image], :class => "miniItemImage") %></td>
+      <td><%= link_to 'Show', item_path(@chasis) %></td>
+    </tr>
+</table>
+

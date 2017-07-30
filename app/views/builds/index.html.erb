@@ -1,8 +1,8 @@
-<h1>Listing Builds</h1>
+<h1>Builds</h1>
 
-<%= link_to 'Create Build', controller: "builds", action: "new" %>
+<%= link_to 'Create Build', {controller: "builds", action: "new"}, class: "btn btn-primary createBuild" %>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Description</th>

@@ -14,6 +14,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'item', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'build', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -46,7 +47,7 @@
     <%= form_tag(items_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Parts...", :class => 'form-control searchBox'  %>
         <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name), {:include_blank => '', :class => "form-control category floater"}) %>
-        <%= submit_tag "Search", :name => nil, :class => "btn btn-default searchSubmit" %>
+        <%= submit_tag "Search", :name => nil, :class => "btn btn-primary searchSubmit" %>
     <% end %>
     <div class="main">
         <%= yield %>
