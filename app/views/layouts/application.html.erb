@@ -2,19 +2,23 @@
 <html>
   <head>
     <title>Zanders Computers</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script
+      src="http://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%= csrf_meta_tags %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <ul class="nav">
+    <ul class="mainNav">
         <li><a href="/">Home</a></li>
         <li class="dropdown">
-            <a href="/items" class="dropbtn" >Items</a>
+            <a href="/items">Items</a>
             <div class="dropdown-content">
                 <a href="/items?selected_item_type=1">Motherboard</a>
                 <a href="/items?selected_item_type=2">RAM</a>
@@ -39,9 +43,8 @@
     </ul>
     <%= form_tag(items_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Parts...", :class => 'form_control'  %>
-        <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name))%>
-        <%= submit_tag "Search", :name => nil, :class => "btn fa-input" %>
-        <button type="button" class="btn btn-success">PRESS ME</button>
+        <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name), {:class => "form-control category"}) %>
+        <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
     <% end %>
     <%= yield %>
   </body>

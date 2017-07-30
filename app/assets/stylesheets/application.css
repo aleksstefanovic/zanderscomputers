@@ -2,22 +2,21 @@ body {
     margin: 20px 20px 20px 20px;
 }
 
-.nav {
+.mainNav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333333;
-    /*position:fixed;*/
     width: 100%;
     z-index: 1;
 }
 
-.nav li {
+.mainNav li {
     display: inline-block;
 }
 
-.nav li a {
+.mainNav li a {
     display: inline-block;
     color: white;
     font-size: 1.5em;
@@ -26,11 +25,11 @@ body {
     text-decoration: none;
 }
 
-.nav li a.current {
+.mainNav li a.current {
     background-color: #778899;
 }
 
-.nav li a:hover {
+.mainNav li a:hover {
     background-color: #778899;
 }
 
@@ -75,38 +74,7 @@ body {
     background-color: #778899;
 }
 
-/*@media only screen and (max-width: 1200px) {
-    ul.nav li a {
-        padding: 13px 35px;
-        font-size: 1.25em;
-    }
-    #linkedin {
-        width: 40px;
-        height: 40px;
-    }
-    #youtube {
-        width: 60px;
-        height: 40px;
-        margin: 1px 1px 1px 1px; 
-        padding: 1px 1px 1px 1px; 
-    }
+.form-control.category {
+    width: 200px;
+    height: 30px;
 }
-
-
-@media only screen and (max-width: 800px) {
-    ul.nav li {
-        display: block;
-    }
-    #socialbar {
-        float: none;
-    }
-    ul.nav li a {
-        text-align: center;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    ul.nav {
-        position: static;
-    }
-}*/
