@@ -1,15 +1,16 @@
-
 <p>
-  <strong>Name:</strong>
+  <strong>Name: </strong>
   <%= @item.name %>
 </p>
+<p>
+  <strong>Type: </strong>
+  <%= @item.item_type %>
+</p>
+
+<%= image_tag (@item.image), :class => "itemImage" %>
  
 <p>
-  <strong>Description:</strong>
+  <strong>Description: </strong>
   <%= @item.description %>
 </p>
 
-<p>
-  <strong>Type</strong>
-  <%= @item.item_type %>
-</p>

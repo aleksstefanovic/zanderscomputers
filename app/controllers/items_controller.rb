@@ -3,15 +3,20 @@ class ItemsController < ApplicationController
         @searchQuery = params[:search]
         searchItemType = params[:selected_item_type]
 
-        @items = Item.where("name like ?", "%#{@searchQuery}%").where(:item_type => searchItemType)
-        if searchItemType == nil
-            @items = Item.all.order ('name ASC')
+        if searchItemType == nil or searchItemType == ""
+            #@items = Item.all.order ('name ASC')
+            @items = Item.where("name like ?", "%#{@searchQuery}%").order ('name ASC')
+        else 
+            @items = Item.where("name like ?", "%#{@searchQuery}%").where(:item_type => searchItemType).order ('name ASC')
         end 
 
         @items.each do |item|
             Rails.logger.debug("debugging...: " + @item.inspect)
             item[:item_type] = ItemType.where(:id => item[:item_type]).first.name
             item[:description] = item[:description][0..50]
+            if item[:image] == nil
+                item[:image] = "NA.png"
+            end
         end
     end
     
@@ -27,9 +32,12 @@ class ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id])
         @item[:item_type] = ItemType.where(:id => @item[:item_type]).first.name
+        if @item.image == nil
+            @item.image = "NA.png"
+        end
     end
 
     private def item_params
-        params.require(:item).permit(:name, :description, :item_type)
+        params.require(:item).permit(:name, :image, :description, :item_type)
     end
 end

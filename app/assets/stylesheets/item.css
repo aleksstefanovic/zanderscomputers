@@ -1,0 +1,19 @@
+.itemImage {
+    width:350px;
+    height:300px;
+}
+
+.miniItemImage {
+    width:60px;
+    height:50px;
+}
+
+.form-control.newDesc {
+    width:1000px;
+    height:250px;
+    resize: none;
+}
+
+.form-control.newText {
+    width:300px;
+}
