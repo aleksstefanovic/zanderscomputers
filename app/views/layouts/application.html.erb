@@ -12,6 +12,7 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -42,11 +43,13 @@
         </div>
     </ul>
     <%= form_tag(items_path, :method => "get", id: "search-form", :enforce_utf8 => false) do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Parts...", :class => 'form_control'  %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Parts...", :class => 'form-control searchBox'  %>
         <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name), {:class => "form-control category"}) %>
-        <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+        <%= submit_tag "Search", :name => nil, :class => "btn btn-default searchSubmit" %>
     <% end %>
-    <%= yield %>
+    <div class="main">
+        <%= yield %>
+    </div>
   </body>
 
 </html>
