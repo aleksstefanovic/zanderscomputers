@@ -1,19 +1,112 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
 body {
     margin: 20px 20px 20px 20px;
 }
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    /*position:fixed;*/
+    width: 100%;
+    z-index: 1;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    display: inline-block;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 16px 50px;
+    text-decoration: none;
+}
+
+.nav li a.current {
+    background-color: #778899;
+}
+
+.nav li a:hover {
+    background-color: #778899;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #222222;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color:#778899}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.signIn {
+    float: right;
+    color: white;
+    text-decoration: none;
+    margin: 20px 20px 20px 20px;
+    font-size: 1em;
+}
+
+.signIn a {
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+    color: white;
+}
+
+.signIn a:hover {
+    background-color: #778899;
+}
+
+/*@media only screen and (max-width: 1200px) {
+    ul.nav li a {
+        padding: 13px 35px;
+        font-size: 1.25em;
+    }
+    #linkedin {
+        width: 40px;
+        height: 40px;
+    }
+    #youtube {
+        width: 60px;
+        height: 40px;
+        margin: 1px 1px 1px 1px; 
+        padding: 1px 1px 1px 1px; 
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    ul.nav li {
+        display: block;
+    }
+    #socialbar {
+        float: none;
+    }
+    ul.nav li a {
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    ul.nav {
+        position: static;
+    }
+}*/
