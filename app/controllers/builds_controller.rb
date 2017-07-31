@@ -1,4 +1,5 @@
 class BuildsController < ApplicationController
+    before_action :authenticate_user! 
     def index
         @builds = Build.where(:userid => current_user.id)
         @builds.each do |build|
@@ -7,6 +8,29 @@ class BuildsController < ApplicationController
     end
     
     def new
+    end
+
+    def edit
+        @build = Build.find(params[:id]) 
+        @item = Item.find(params[:itemId])
+        @item_type = @item[:item_type]
+
+        if @item_type == '1'
+            @build[:motherboard] = params[:itemId]
+        elsif @item_type == '2'
+            @build[:ram] = params[:itemId]
+        elsif @item_type == '3'
+            @build[:cpu] = params[:itemId]
+        elsif @item_type == '4'
+            @build[:gpu] = params[:itemId]
+        elsif @item_type == '5'
+            @build[:psu] = params[:itemId]
+        elsif @item_type == '6'
+            @build[:chasis] = params[:itemId]
+        end
+   
+        @build.save
+        redirect_to @build
     end
 
     def create

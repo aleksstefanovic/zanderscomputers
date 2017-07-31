@@ -4,14 +4,12 @@ class ItemsController < ApplicationController
         searchItemType = params[:selected_item_type]
 
         if searchItemType == nil or searchItemType == ""
-            #@items = Item.all.order ('name ASC')
             @items = Item.where("name like ?", "%#{@searchQuery}%").order ('name ASC')
         else 
             @items = Item.where("name like ?", "%#{@searchQuery}%").where(:item_type => searchItemType).order ('name ASC')
         end 
 
         @items.each do |item|
-            Rails.logger.debug("debugging...: " + @item.inspect)
             item[:item_type] = ItemType.where(:id => item[:item_type]).first.name
             item[:description] = item[:description][0..50]
             if item[:image] == nil
@@ -21,6 +19,9 @@ class ItemsController < ApplicationController
     end
     
     def new
+        if current_user == nil
+            redirect_to new_user_session_path
+        end
     end
 
     def create

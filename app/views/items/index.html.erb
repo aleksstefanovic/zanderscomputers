@@ -1,4 +1,4 @@
-<h1>Items</h1>
+<h1 id="test">Items</h1>
  
 <table class="table table-striped">
   <tr>
@@ -6,6 +6,7 @@
     <th>Image</th>
     <th>Description</th>
     <th>Item Type</th>
+    <th><th>
     <th><th>
   </tr>
  
@@ -16,6 +17,9 @@
       <td><%= item.description %></td>
       <td><%= item.item_type %></td>
       <td><%= link_to 'Show', item_path(item) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Add to Build', {:action => "edit", :controller => "builds", :id => "6" , :itemId => item.id}, :id => "addToBuild" %></td>
+        <% end %>
     </tr>
   <% end %>
 </table>

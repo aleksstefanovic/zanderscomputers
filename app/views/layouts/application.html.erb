@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Zanders Computers</title>
+    <title id="titleThing">Zanders Computers</title>
     <script
       src="http://code.jquery.com/jquery-3.2.1.js"
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -35,7 +35,6 @@
         <div class="signIn">
             <% if user_signed_in? %>
               Logged in as <strong><%= current_user.email %></strong>.
-              <!--<%= link_to 'Edit profile', edit_user_registration_path, class: "btn" %> |-->
               <%= link_to 'My Builds', {controller: "builds"}, class: "btn" %> |
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn" %>
             <% else %>
@@ -49,6 +48,12 @@
         <%= select_tag(:selected_item_type, options_from_collection_for_select(ItemType.all, :id, :name), {:include_blank => '', :class => "form-control category floater"}) %>
         <%= submit_tag "Search", :name => nil, :class => "btn btn-primary searchSubmit" %>
     <% end %>
+            <% if user_signed_in? %>
+                <div class="currentBuild">
+                    <%= label_tag "", "Current Build" %>
+                    <%= select_tag(:current_build, options_from_collection_for_select(Build.where(:userid => current_user.id), :id, :name), {:class => "form-control category" , :id => "currentBuildThingMan"}) %>
+                </div>
+            <% end %>
     <div class="main">
         <%= yield %>
     </div>
