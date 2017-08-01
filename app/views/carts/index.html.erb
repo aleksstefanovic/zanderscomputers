@@ -1,0 +1,22 @@
+<h1>Cart</h1>
+
+<% if @carts != [] %>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+     
+      <% @carts.each do |build| %>
+        <tr>
+          <td><%= build[:name] %></td>
+          <td><%= build[:description] %></td>
+          <td><%= link_to 'Show', build_path(build) %></td>
+          <td><%= link_to 'Remove', { action: :destroy, id: build.id }, method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Checkout', class: "btn btn-primary createBuild" %>
+<% else %>
+    <strong>Nothing added to cart!</strong>
+<% end %>
