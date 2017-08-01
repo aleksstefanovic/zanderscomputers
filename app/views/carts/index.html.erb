@@ -11,8 +11,8 @@
         <tr>
           <td><%= build[:name] %></td>
           <td><%= build[:description] %></td>
-          <td><%= link_to 'Show', build_path(build) %></td>
-          <td><%= link_to 'Remove', { action: :destroy, id: build.id }, method: :delete %></td>
+          <td><%= link_to 'Show', { action: :show, controller: "builds", id: build[:buildid] } %></td>
+          <td><%= link_to 'Remove', { action: :destroy, id: build[:cartid] }, method: :delete %></td>
         </tr>
       <% end %>
     </table>
