@@ -52,7 +52,7 @@
             <% if user_signed_in? %>
                 <div class="currentBuild">
                     <%= label_tag "", "Current Build" %>
-                    <%= select_tag(:current_build, options_from_collection_for_select(Build.where(:userid => current_user.id), :id, :name), {:class => "form-control category" , :id => "currentBuildThingMan"}) %>
+                    <%= select_tag(:current_build, options_from_collection_for_select(Build.where(:userid => current_user.id), :id, :name), {:class => "form-control category" , :id => "currentBuildThingMan", :onchange => 'currentBuildChanged()', :include_blank => '' }) %>
                 </div>
             <% end %>
     <div class="main">

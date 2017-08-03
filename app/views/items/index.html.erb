@@ -18,7 +18,7 @@
       <td><%= item.item_type %></td>
       <td><%= link_to 'Show', item_path(item) %></td>
         <% if user_signed_in? %>
-          <td><%= link_to 'Add to Build', {:action => "edit", :controller => "builds", :id => "6" , :itemId => item.id}, :id => "addToBuild" %></td>
+          <td><%= link_to 'Add to Build',  {:action => "edit", :controller => "builds", :id => "" , :itemId => item.id },  :class => "addToBuild" %></td>
         <% end %>
     </tr>
   <% end %>
