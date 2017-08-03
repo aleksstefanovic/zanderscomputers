@@ -38,7 +38,6 @@
 .mainNav li a:hover {
     background-color: #778899;
 }
-
 .dropdown-content {
     display: none;
     position: fixed;
@@ -110,4 +109,25 @@
 .currentBuild {
    float:right; 
    margin-right: 20px;
+}
+
+
+@media only screen and (max-width: 780px) {
+    body {
+        margin:0;
+    }
+    .mainNav li {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mainNav li {
+        display: block;
+        text-align: center;
+    }
+    .signIn {
+        text-align: center;
+    }
 }
