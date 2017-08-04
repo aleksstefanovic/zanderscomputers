@@ -31,8 +31,7 @@ class CartsController < ApplicationController
         redirect_to carts_path
     end
     
-    def show
+    def all
         @carts = Cart.where(:userid => current_user.id).destroy_all
     end
-
 end

@@ -3,7 +3,10 @@ class ApplicationController < ActionController::Base
     before_action :set_cart_count
 
     def set_cart_count
-        @cart_icon = 'Cart (' + Cart.where(:userid => current_user.id).count.to_s + ')'
+        @cart_icon = 0
+        if current_user
+            @cart_icon = 'Cart (' + Cart.where(:userid => current_user.id).count.to_s + ')'
+        end
     end
     #before_action :authenticate_user! 
 
