@@ -37,7 +37,7 @@
               Logged in as <strong><%= current_user.email %></strong>.
               <%= link_to  @cart_icon, {controller: "carts"}, class: "btn" %> 
               <%= link_to 'My Builds', {controller: "builds"}, class: "btn" %> |
-              <%= link_to "Logout", destroy_user_session_path, :method => :get, class: "btn" %>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn" %>
             <% else %>
               <%= link_to "Sign up", new_user_registration_path, class: "btn" %> |
               <%= link_to "Login", new_user_session_path, class: "btn" %>
